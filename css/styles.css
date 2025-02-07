@@ -1,1 +1,100 @@
+/* Reset default margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        /* Smooth scrolling behavior for the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Common styles for all sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Content container for each section */
+        .content {
+            max-width: 1200px;
+            width: 100%;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Individual section styles with different backgrounds */
+        #fold1 {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+        }
+
+        #fold2 {
+            background: linear-gradient(135deg, #24243e, #302b63, #0f0c29);
+        }
+
+        #fold3 {
+            background: linear-gradient(135deg, #134e5e, #71b280);
+        }
+
+        #fold4 {
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+        }
+
+        /* Navigation menu */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #fdbb2d;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .nav {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
