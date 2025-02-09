@@ -1,24 +1,26 @@
-* {
+ /* Set base font size for rem calculations */
+        html {
+            font-size: 16px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: din-2014, sans-serif;
-            font-weight: 400;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
         }
 
-        /* Fold sections */
         .fold {
             min-height: 100vh;
             width: 100%;
             padding: 2rem;
         }
 
-        /* First fold specific styles */
-         .first-fold {
+        .first-fold {
             background-color: #000000;
             display: flex;
             flex-direction: column;
@@ -29,51 +31,55 @@
 
         .image-container {
             width: 80%;
+            /* Convert px to rem: 1200px / 16px = 75rem */
             max-width: 75rem;
             aspect-ratio: 16/9;
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* Convert px to rem: 1000px / 16px = 62.5rem */
             perspective: 62.5rem;
-            /* Ensure perspective origin is centered */
             perspective-origin: 50% 50%;
         }
 
         .image-wrapper {
             animation: spin 4s linear infinite;
             transform-style: preserve-3d;
-            /* Remove translateZ and ensure transform-origin is centered */
             transform-origin: center center;
             width: 100%;
+            /* Convert px to rem: 800px / 16px = 50rem */
             max-width: 50rem;
-            /* Ensure the wrapper is perfectly level */
             position: relative;
-            /* Add backface visibility for smoother rotation */
             backface-visibility: visible;
         }
 
         .rotating-image {
             width: 100%;
             height: auto;
+            /* Convert px values in filter */
             filter: drop-shadow(0 0 0.625rem rgba(0, 0, 0, 0.3));
-            /* Ensure image is centered within wrapper */
             display: block;
             margin: 0 auto;
         }
+
         .subtitle {
             margin-top: 2rem;
-            width: 60%;
-            font-size: 1rem;
-            color: white;
+            /* Convert px to rem: 24px / 16px = 1.5rem (already in rem) */
+            font-size: 1.5rem;
+            color: #333;
             text-align: center;
         }
 
-        /* Other folds with different background colors for visibility */
+        .image-wrapper:hover {
+            animation-play-state: paused;
+        }
+
         .second-fold { background-color: #e0e0e0; }
         .third-fold { background-color: #d0d0d0; }
         .fourth-fold { background-color: #c0c0c0; }
 
- @media (max-width: 48rem) { /* 768px */
+        /* Add a media query for smaller screens */
+        @media (max-width: 48rem) { /* 768px */
             html {
                 font-size: 14px; /* Slightly smaller base size for mobile */
             }
@@ -94,3 +100,4 @@
             to { 
                 transform: rotateY(360deg);
             }
+        }
