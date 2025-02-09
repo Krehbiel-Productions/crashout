@@ -58,7 +58,45 @@
             background: linear-gradient(135deg, #4b6cb7, #182848);
         }
 
-        /* Responsive design */
+.container {
+       height: 100vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: #f0f0f0;
+       perspective: 1000px;
+}
+
+.image-wrapper {
+       animation: spin 4s linear infinite;
+       transform-style: preserve-3d;
+       /* Add some depth to make it more 3D-like */
+       transform: translateZ(0);
+}
+
+.rotating-image {
+       /* Prevent image stretching */
+       max-width: 100%;
+       height: auto;
+       /* Optional: add some depth with shadow */
+       filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+/* Pause animation on hover */
+.image-wrapper:hover {
+       animation-play-state: paused;
+}
+
+@keyframes spin {
+       from {
+              transform: rotateY(0deg);
+       }
+       to {
+              transform: rotateY(360deg);
+       }
+}
+
+/* Responsive design */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -66,11 +104,5 @@
 
             p {
                 font-size: 1rem;
-            }
-
-            .nav {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
             }
         }
