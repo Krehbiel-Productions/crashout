@@ -28,12 +28,13 @@
         }
 
         .image-container {
-            width: 100%;
+            width: 80%;
+            max-width: 75rem;
             aspect-ratio: 16/9;
             display: flex;
             flex-direction: column;
             align-items: center;
-            perspective: 1000px;
+            perspective: 62.5rem;
             /* Ensure perspective origin is centered */
             perspective-origin: 50% 50%;
         }
@@ -44,7 +45,7 @@
             /* Remove translateZ and ensure transform-origin is centered */
             transform-origin: center center;
             width: 100%;
-            max-width: 500px;
+            max-width: 50rem;
             /* Ensure the wrapper is perfectly level */
             position: relative;
             /* Add backface visibility for smoother rotation */
@@ -54,14 +55,14 @@
         .rotating-image {
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(0 0 0.625rem rgba(0, 0, 0, 0.3));
             /* Ensure image is centered within wrapper */
             display: block;
             margin: 0 auto;
         }
         .subtitle {
             margin-top: 2rem;
-            width: 40%;
+            width: 60%;
             font-size: 1rem;
             color: white;
             text-align: center;
@@ -71,6 +72,20 @@
         .second-fold { background-color: #e0e0e0; }
         .third-fold { background-color: #d0d0d0; }
         .fourth-fold { background-color: #c0c0c0; }
+
+ @media (max-width: 48rem) { /* 768px */
+            html {
+                font-size: 14px; /* Slightly smaller base size for mobile */
+            }
+            
+            .image-container {
+                width: 90%; /* Wider container on mobile */
+            }
+            
+            .subtitle {
+                font-size: 1.25rem; /* Slightly smaller text on mobile */
+            }
+        }
 
         @keyframes spin {
             from { 
