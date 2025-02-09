@@ -42,9 +42,6 @@
         }
 
         /* Individual section styles with different backgrounds */
-        #fold1 {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-        }
 
         #fold2 {
             background: linear-gradient(135deg, #24243e, #302b63, #0f0c29);
@@ -81,11 +78,6 @@
        height: auto;
        /* Optional: add some depth with shadow */
        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-}
-
-/* Pause animation on hover */
-.image-wrapper:hover {
-       animation-play-state: paused;
 }
 
 @keyframes spin {
