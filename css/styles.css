@@ -56,31 +56,31 @@
         }
 
 .container {
-       height: 100vh;
-       width: 100vw;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       background-color: #000000;
-       perspective: 1000px;
-}
+            /* Use viewport units for full coverage */
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            perspective: 1000px;
+            /* Prevent any potential overflow */
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
 
-.image-wrapper {
-       animation: spin 4s linear infinite;
-       transform-style: preserve-3d;
-       /* Add some depth to make it more 3D-like */
-       transform: translateZ(0);
-}
+        .image-wrapper {
+            animation: spin 4s linear infinite;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+        }
 
-.rotating-image {
-       /* Prevent image stretching */
-       align
-       max-width: 100%;
-       height: auto;
-       /* Optional: add some depth with shadow */
-       filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-       margin-bottom: 3rem;
-}
+        .rotating-image {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+        }
 
 .subtitle1 {
        text-align: center;
