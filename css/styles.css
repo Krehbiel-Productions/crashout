@@ -58,30 +58,6 @@
             background: linear-gradient(135deg, #4b6cb7, #182848);
         }
 
-        /* Navigation menu */
-        .nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-        }
-
-        .nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .nav a:hover {
-            color: #fdbb2d;
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             h1 {
