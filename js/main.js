@@ -77,13 +77,43 @@ if (new Date() >= endDate) {
     });
   </script>
 
+
 <script>
 // Initialize Stripe
 const stripe = Stripe('pk_live_51Msyx3S4FtzJHEthz61OJE3CYGbHS4CM7oE5Foo3LiPvcaDIJvgTaqDKKzWPNZGIDZvkqLfsBMSWbBTwEFJuyQvb00NRgWCnkc');
 
-// Add this function to handle the checkout
-async function handleCheckout() {
+// Product configuration for exactly 4 products
+const products = {
+    'price_product1_id': {
+        name: 'Product 1',
+        success_url: 'https://ericgkrehbiel.github.io/production-co/',
+        cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
+    },
+    'price_product2_id': {
+        name: 'Product 2',
+        success_url: 'https://ericgkrehbiel.github.io/production-co/',
+        cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
+    },
+    'price_product3_id': {
+        name: 'Product 3',
+        success_url: 'https://ericgkrehbiel.github.io/production-co/',
+        cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
+    },
+    'price_product4_id': {
+        name: 'Product 4',
+        success_url: 'https://ericgkrehbiel.github.io/production-co/',
+        cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
+    }
+};
+
+// Checkout handler
+async function handleCheckout(priceId) {
     try {
+        const productConfig = products[priceId];
+        if (!productConfig) {
+            throw new Error('Invalid product configuration');
+        }
+
         // Create Checkout Session
         const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
             method: 'POST',
@@ -93,12 +123,15 @@ async function handleCheckout() {
             body: JSON.stringify({
                 payment_method_types: ['card'],
                 line_items: [{
-                    price: 'price_1QrBCbS4FtzJHEthm8pTLtdh', // Your price ID from Stripe Dashboard
+                    price: priceId,
                     quantity: 1,
                 }],
                 mode: 'payment',
-                success_url: 'https://ericgkrehbiel.github.io/production-co/',
-                cancel_url: 'https://ericgkrehbiel.github.io/production-co/',
+                success_url: productConfig.success_url,
+                cancel_url: productConfig.cancel_url,
+                metadata: {
+                    product_name: productConfig.name
+                }
             }),
         });
         
@@ -116,5 +149,4 @@ async function handleCheckout() {
         console.error('Error:', error);
         alert('Something went wrong. Please try again.');
     }
-}
-</script>
+}</script>
