@@ -127,7 +127,7 @@
       }
       
       .logo-carousel.expanded .logo-slide img {
-        height: 13vh;  /* Slightly smaller than container for padding */
+        height: 10vh;  /* Slightly smaller than container for padding */
       }
     }
 
