@@ -1,49 +1,50 @@
 <!-- Countdown Timer Script -->
   <script>
-    function updateCountdown() {
-      const endDate = new Date('2024-02-27T23:59:00-05:00'); // ET (UTC-5)
-      const now = new Date();
-      const timeDifference = endDate - now;
+    // Get DOM elements
+const countdownElement = document.getElementById('countdown');
+const endedMessageElement = document.getElementById('ended-message');
 
-      if (timeDifference <= 0) {
-        document.getElementById('countdown').textContent = '00:00:00';
-        handleDropEnd();
-        return;
-      }
+// Set the end date (February 27, 2024 at 23:59:00 EST)
+const endDate = new Date('2024-02-27T23:59:00-05:00');
 
-      const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+function updateCountdown() {
+  const currentDate = new Date();
+  const timeDifference = endDate - currentDate;
 
-      const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-      document.getElementById('countdown').textContent = formattedTime;
-    }
+  if (timeDifference <= 0) {
+    handleDropEnd();
+    return;
+  }
 
-    function handleDropEnd() {
-      // Stop the countdown
-      clearInterval(countdownInterval);
-      
-      // Hide products with fade-out animation
-      const productsGrid = document.getElementById('products-grid');
-      productsGrid.classList.add('hidden');
-      
-      // Show ended message
-      const endedMessage = document.getElementById('ended-message');
-      endedMessage.classList.add('visible');
-      
-      // Update countdown text
-      document.getElementById('countdown').textContent = '00:00:00';
-    }
+  // Calculate time components
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    // Check if drop has already ended on page load
-    const endDate = new Date('2024-02-27T23:59:00-05:00');
-    if (new Date() >= endDate) {
-      handleDropEnd();
-    } else {
-      // Update immediately and then every second
-      updateCountdown();
-      const countdownInterval = setInterval(updateCountdown, 1000);
-    }
+  // Format the countdown string
+  countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+function handleDropEnd() {
+  // Clear the interval if it exists
+  if (window.countdownInterval) {
+    clearInterval(window.countdownInterval);
+  }
+  
+  // Hide countdown and show ended message
+  document.querySelector('.countdown-container').style.display = 'none';
+  endedMessageElement.style.display = 'block';
+}
+
+// Initial setup
+if (new Date() >= endDate) {
+  handleDropEnd();
+} else {
+  // Update immediately and then every second
+  updateCountdown();
+  window.countdownInterval = setInterval(updateCountdown, 1000);
+}
   </script>
 
   <!-- Mobile Image Swap Script -->
