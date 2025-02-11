@@ -1,3 +1,17 @@
+/* logo carousel */
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.getElementById('logoCarousel');
+      
+      // Mobile click handler
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        carousel.addEventListener('click', function() {
+          this.classList.toggle('expanded');
+        });
+      }
+    });
+</script>
+
 <!-- Countdown Timer Script -->
   <script>
     // Get DOM elements
