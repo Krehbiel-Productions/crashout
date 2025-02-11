@@ -29,7 +29,43 @@
 
     <!-- Other folds -->
     <section class="fold second-fold">
-        <h2>Second Fold</h2>
+        <!-- Countdown Timer -->
+  <div class="countdown-container">
+    Drop ends in <span class="countdown-time" id="countdown"></span>
+  </div>
+
+  <!-- End Message (hidden by default) -->
+  <div class="ended-message" id="ended-message">
+    This drop has ended
+  </div>
+
+  <div class="products-grid" id="products-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="image-container" data-product-id="1">
+        <img src="/api/placeholder/400/300" alt="Product 1 - View 1" class="product-image image-primary">
+        <img src="/api/placeholder/400/300" alt="Product 1 - View 2" class="product-image image-secondary">
+      </div>
+      <div class="product-details">
+        <h3 class="product-title">Product One</h3>
+        <div class="product-price">$99.99</div>
+        <button class="buy-button">Buy</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="image-container" data-product-id="2">
+        <img src="/api/placeholder/400/300" alt="Product 2 - View 1" class="product-image image-primary">
+        <img src="/api/placeholder/400/300" alt="Product 2 - View 2" class="product-image image-secondary">
+      </div>
+      <div class="product-details">
+        <h3 class="product-title">Product Two</h3>
+        <div class="product-price">$149.99</div>
+        <button class="buy-button">Buy</button>
+      </div>
+    </div>
+  </div>
     </section>
 
     <section class="fold third-fold">
