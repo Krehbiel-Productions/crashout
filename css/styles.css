@@ -217,7 +217,7 @@
       text-align: center;
     }
 
-   .image-container {
+   .image-container-shop {
       position: relative;
       width: 100%;
       padding-top: 125%; /* This creates a 4:5 aspect ratio */
@@ -242,11 +242,11 @@
 
     /* Desktop hover effect */
     @media (hover: hover) and (pointer: fine) {
-      .image-container:hover .image-primary {
+      .image-container-shop:hover .image-primary {
         opacity: 0;
       }
       
-      .image-container:hover .image-secondary {
+      .image-container-shop:hover .image-secondary {
         opacity: 1;
       }
     }
