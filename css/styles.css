@@ -109,14 +109,13 @@
 
     .countdown-time {
       font-weight: 600;
-      font-family: monospace;
       letter-spacing: 0.1em;
     }
 
     .products-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 3rem;
       justify-items: center;
       opacity: 1;
       transition: opacity 0.5s ease, height 0.5s ease;
@@ -133,7 +132,7 @@
 
     .product-card {
       width: 100%;
-      max-width: 400px;
+      max-width: 300px;
       text-align: center;
     }
 
