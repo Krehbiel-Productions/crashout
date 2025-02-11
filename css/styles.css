@@ -102,7 +102,7 @@
       overflow: hidden;
       position: relative;
       transition: height 0.3s ease-in-out;
-      background-color: white;
+      background-color: #afafaf;
       display: flex;
       align-items: center;
     }
@@ -110,11 +110,11 @@
     /* Desktop hover behavior */
     @media (min-width: 769px) {
       .logo-carousel:hover {
-        height: 15vh;
+        height: 12vh;
       }
       
       .logo-carousel:hover .logo-slide img {
-        height: 13vh;  /* Slightly smaller than container for padding */
+        height: 10vh;  /* Slightly smaller than container for padding */
       }
     }
 
@@ -172,6 +172,7 @@
       }
     }
 
+/* 2nd fold */
 .products-section {
       padding: 4rem 2rem;
       max-width: 1200px;
