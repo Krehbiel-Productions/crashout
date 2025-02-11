@@ -1,20 +1,17 @@
 /* logo carousel */
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const carousel = document.getElementById('logoCarousel');
-      
-      // Mobile click handler
-      if (window.matchMedia('(max-width: 768px)').matches) {
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('logoCarousel');
+    
+    // Mobile click handler
+    if (window.matchMedia('(max-width: 768px)').matches) {
         carousel.addEventListener('click', function() {
-          this.classList.toggle('expanded');
+            this.classList.toggle('expanded');
         });
-      }
-    });
-</script>
+    }
+});
 
-<!-- Countdown Timer Script -->
-  <script>
-    // Get DOM elements
+// Countdown Timer Script
+// Get DOM elements
 const countdownElement = document.getElementById('countdown');
 const endedMessageElement = document.getElementById('ended-message');
 
@@ -22,78 +19,73 @@ const endedMessageElement = document.getElementById('ended-message');
 const endDate = new Date('2024-02-27T23:59:00-05:00');
 
 function updateCountdown() {
-  const currentDate = new Date();
-  const timeDifference = endDate - currentDate;
+    const currentDate = new Date();
+    const timeDifference = endDate - currentDate;
 
-  if (timeDifference <= 0) {
-    handleDropEnd();
-    return;
-  }
+    if (timeDifference <= 0) {
+        handleDropEnd();
+        return;
+    }
 
-  // Calculate time components
-  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    // Calculate time components
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-  // Format the countdown string
-  countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    // Format the countdown string
+    countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
 function handleDropEnd() {
-  // Clear the interval if it exists
-  if (window.countdownInterval) {
-    clearInterval(window.countdownInterval);
-  }
-  
-  // Hide countdown and show ended message
-  document.querySelector('.countdown-container').style.display = 'none';
-  endedMessageElement.style.display = 'block';
+    // Clear the interval if it exists
+    if (window.countdownInterval) {
+        clearInterval(window.countdownInterval);
+    }
+    
+    // Hide countdown and show ended message
+    document.querySelector('.countdown-container').style.display = 'none';
+    endedMessageElement.style.display = 'block';
 }
 
 // Initial setup
 if (new Date() >= endDate) {
-  handleDropEnd();
+    handleDropEnd();
 } else {
-  // Update immediately and then every second
-  updateCountdown();
-  window.countdownInterval = setInterval(updateCountdown, 1000);
+    // Update immediately and then every second
+    updateCountdown();
+    window.countdownInterval = setInterval(updateCountdown, 1000);
 }
-  </script>
 
-  <!-- Mobile Image Swap Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Handle mobile touch interactions
-      const imageContainers = document.querySelectorAll('.image-container');
-      
-      imageContainers.forEach(container => {
+// Mobile Image Swap Script
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle mobile touch interactions
+    const imageContainers = document.querySelectorAll('.image-container');
+    
+    imageContainers.forEach(container => {
         let isShowingSecondary = false;
         
         container.addEventListener('click', function(e) {
-          // Only handle click on touch devices
-          if (window.matchMedia('(hover: none)').matches) {
-            const primary = container.querySelector('.image-primary');
-            const secondary = container.querySelector('.image-secondary');
-            
-            if (isShowingSecondary) {
-              primary.style.opacity = '1';
-              secondary.style.opacity = '0';
-            } else {
-              primary.style.opacity = '0';
-              secondary.style.opacity = '1';
+            // Only handle click on touch devices
+            if (window.matchMedia('(hover: none)').matches) {
+                const primary = container.querySelector('.image-primary');
+                const secondary = container.querySelector('.image-secondary');
+                
+                if (isShowingSecondary) {
+                    primary.style.opacity = '1';
+                    secondary.style.opacity = '0';
+                } else {
+                    primary.style.opacity = '0';
+                    secondary.style.opacity = '1';
+                }
+                
+                isShowingSecondary = !isShowingSecondary;
             }
-            
-            isShowingSecondary = !isShowingSecondary;
-          }
         });
-      });
     });
-  </script>
+});
 
-
-<script>
-// Initialize Stripe with your public key
+// Initialize Stripe
 const stripe = Stripe('pk_live_51Msyx3S4FtzJHEthz61OJE3CYGbHS4CM7oE5Foo3LiPvcaDIJvgTaqDKKzWPNZGIDZvkqLfsBMSWbBTwEFJuyQvb00NRgWCnkc');
 
 // Product configuration
@@ -120,6 +112,7 @@ const products = {
     }
 };
 
+// Checkout handler
 async function handleCheckout(priceId) {
     try {
         const productConfig = products[priceId];
@@ -161,4 +154,3 @@ async function handleCheckout(priceId) {
         alert('Something went wrong. Please try again.');
     }
 }
-}</script>
