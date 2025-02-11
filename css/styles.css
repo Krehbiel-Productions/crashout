@@ -188,24 +188,6 @@
       margin-bottom: 1rem;
     }
 
-    .buy-button {
-      width: 100%;
-      max-width: 200px;
-      padding: 12px 24px;
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-
-    .buy-button:hover {
-      background-color: #1d4ed8;
-    }
-
     .ended-message {
       text-align: center;
       font-size: 1.5rem;
