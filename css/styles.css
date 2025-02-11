@@ -29,10 +29,10 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden;
+          /*  overflow: hidden; */
         }
 
-        .video-background {
+ /*       .video-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -48,14 +48,14 @@
             position: fixed;
             top: 0;
             left: 0;
-        }
+        } 
 
         .image-container {
             position: relative;
             z-index: 1;
         }
 
-        /* Add a subtle overlay to ensure text readability */
+        /* Add a subtle overlay to ensure text readability 
         .first-fold::after {
             content: '';
             position: absolute;
@@ -65,7 +65,7 @@
             height: 100%;
             background: rgba(0, 0, 0, .3);
             z-index: 0;
-        }
+        }   */
 
         .image-container {
             width: 70%;
