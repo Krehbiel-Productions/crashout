@@ -95,14 +95,16 @@
         }
 
 /* logo carousel */
-    /* Logo carousel styles */
+/* Logo carousel styles */
     .logo-carousel {
       width: 100%;
       height: 8vh;
       overflow: hidden;
-      position: relative;
+      position: absolute;
+      bottom: 0;
+      left: 0;
       transition: height 0.3s ease-in-out;
-      background-color: #afafaf;
+      background-color: white;
       display: flex;
       align-items: center;
     }
@@ -110,11 +112,11 @@
     /* Desktop hover behavior */
     @media (min-width: 769px) {
       .logo-carousel:hover {
-        height: 12vh;
+        height: 15vh;
       }
       
       .logo-carousel:hover .logo-slide img {
-        height: 10vh;  /* Slightly smaller than container for padding */
+        height: 13vh;  /* Slightly smaller than container for padding */
       }
     }
 
