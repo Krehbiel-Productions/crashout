@@ -77,11 +77,44 @@ if (new Date() >= endDate) {
     });
   </script>
 
-  <!-- Shopify Buy Button Script -->
-  <script>
-    /*
-    Your Shopify Buy Button integration code will go here.
-    The buttons above will need to be replaced with Shopify's 
-    buy button components once you have your Shopify setup ready.
-    */
-  </script>
+<script>
+// Initialize Stripe
+const stripe = Stripe('pk_live_51Msyx3S4FtzJHEthz61OJE3CYGbHS4CM7oE5Foo3LiPvcaDIJvgTaqDKKzWPNZGIDZvkqLfsBMSWbBTwEFJuyQvb00NRgWCnkc');
+
+// Add this function to handle the checkout
+async function handleCheckout() {
+    try {
+        // Create Checkout Session
+        const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                payment_method_types: ['card'],
+                line_items: [{
+                    price: 'price_1QrBCbS4FtzJHEthm8pTLtdh', // Your price ID from Stripe Dashboard
+                    quantity: 1,
+                }],
+                mode: 'payment',
+                success_url: 'https://ericgkrehbiel.github.io/production-co/',
+                cancel_url: 'https://ericgkrehbiel.github.io/production-co/',
+            }),
+        });
+        
+        const session = await response.json();
+        
+        // Redirect to Stripe Checkout
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.id
+        });
+
+        if (result.error) {
+            throw new Error(result.error.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+    }
+}
+</script>
