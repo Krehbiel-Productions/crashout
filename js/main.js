@@ -93,10 +93,10 @@ if (new Date() >= endDate) {
 
 
 <script>
-// Initialize Stripe
+// Initialize Stripe with your public key
 const stripe = Stripe('pk_live_51Msyx3S4FtzJHEthz61OJE3CYGbHS4CM7oE5Foo3LiPvcaDIJvgTaqDKKzWPNZGIDZvkqLfsBMSWbBTwEFJuyQvb00NRgWCnkc');
 
-// Product configuration for exactly 4 products
+// Product configuration
 const products = {
     'prod_RkgXNKtwvSDNOu': {
         name: 'Black Crashout Tee',
@@ -120,7 +120,6 @@ const products = {
     }
 };
 
-// Checkout handler
 async function handleCheckout(priceId) {
     try {
         const productConfig = products[priceId];
@@ -128,26 +127,24 @@ async function handleCheckout(priceId) {
             throw new Error('Invalid product configuration');
         }
 
-        // Create Checkout Session
-        const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+        // Call your Vercel backend to create the checkout session
+        const response = await fetch('https://crashout-payment-server.vercel.app/api/hello', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                payment_method_types: ['card'],
-                line_items: [{
-                    price: priceId,
-                    quantity: 1,
-                }],
-                mode: 'payment',
-                success_url: productConfig.success_url,
-                cancel_url: productConfig.cancel_url,
-                metadata: {
-                    product_name: productConfig.name
-                }
+                priceId: priceId,
+                successUrl: productConfig.success_url,
+                cancelUrl: productConfig.cancel_url,
+                productName: productConfig.name
             }),
         });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Network response was not ok');
+        }
         
         const session = await response.json();
         
@@ -163,4 +160,5 @@ async function handleCheckout(priceId) {
         console.error('Error:', error);
         alert('Something went wrong. Please try again.');
     }
+}
 }</script>
