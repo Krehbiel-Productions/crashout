@@ -90,22 +90,22 @@ const stripe = Stripe('pk_live_51Msyx3S4FtzJHEthz61OJE3CYGbHS4CM7oE5Foo3LiPvcaDI
 
 // Product configuration
 const products = {
-    'prod_RkgXNKtwvSDNOu': {
+    'price_1QrBAqS4FtzJHEthIdGQRher': {
         name: 'Black Crashout Tee',
         success_url: 'https://ericgkrehbiel.github.io/production-co/',
         cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
     },
-    'prod_RkgXOX2gpJ2ENx': {
+    'price_1QrBARS4FtzJHEthBJ07qli4': {
         name: 'White Crashout Tee',
         success_url: 'https://ericgkrehbiel.github.io/production-co/',
         cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
     },
-    'prod_RkgZJe5Gtgp0og': {
+    'price_1QrBCbS4FtzJHEthm8pTLtdh': {
         name: 'Black Crashout Champion Hoodie',
         success_url: 'https://ericgkrehbiel.github.io/production-co/',
         cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
     },
-    'prod_RkgY5yJ8jziXEK': {
+    'price_1QrBBJS4FtzJHEthwcT4vAJf': {
         name: 'White Crashout Champion Hoodie',
         success_url: 'https://ericgkrehbiel.github.io/production-co/',
         cancel_url: 'https://ericgkrehbiel.github.io/production-co/'
