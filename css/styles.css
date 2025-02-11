@@ -339,7 +339,7 @@ button:active .button-inner {
       }
     }
 
-.footer {
+        .footer {
             width: 100%;
             height: 10vh;
             background-color: #f8f9fa;
@@ -351,8 +351,8 @@ button:active .button-inner {
         }
 
         .footer-left {
-            font-family: Arial, sans-serif;
-            color: #333;
+            font-family: neue-haas-unica, sans-serif;
+            color: black;
         }
 
         .footer-right {
@@ -367,11 +367,10 @@ button:active .button-inner {
         }
 
         .footer-right-text {
-            font-family: Arial, sans-serif;
-            color: #333;
+            font-family: neue-haas-unica, sans-serif;
+            color: black;
         }
 
-        /* Mobile responsive layout */
         @media screen and (max-width: 768px) {
             .footer {
                 height: auto;
