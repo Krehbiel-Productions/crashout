@@ -318,6 +318,7 @@ button:hover .button-inner {
 button .button-inner span {
   position: relative;
   z-index: 4;
+  font-size: 15px;
   letter-spacing: -0.05em;
   font-weight: 500;
   color: rgba(0, 0, 0, 0);
