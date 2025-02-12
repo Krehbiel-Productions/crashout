@@ -458,7 +458,7 @@ button:active .button-inner {
 
 .third-fold,
 .fourth-fold {
-    display: none;
+    display: none !important;
 }
 
         .footer {
