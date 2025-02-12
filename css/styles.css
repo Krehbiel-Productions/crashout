@@ -95,66 +95,6 @@
             }
         }
 
-/* logo carousel */
-/* Logo carousel styles */
-    .logo-carousel {
-      width: 100%;
-      height: 8vh;
-      overflow: hidden;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transition: height 0.3s ease-in-out;
-      background-color: white;
-      display: flex;
-      align-items: center;
-    }
-
-    /* Desktop hover behavior */
-    @media (min-width: 769px) {
-      .logo-carousel:hover {
-        height: 12vh;
-      }
-      
-      .logo-carousel:hover .logo-slide img {
-        height: 10vh;  /* Slightly smaller than container for padding */
-      }
-    }
-
-    /* Mobile click behavior */
-    @media (max-width: 768px) {
-      .logo-carousel.expanded {
-        height: 12vh;
-      }
-      
-      .logo-carousel.expanded .logo-slide img {
-        height: 10vh;  /* Slightly smaller than container for padding */
-      }
-    }
-
-    .logo-track {
-      display: flex;
-      animation: scroll 20s linear infinite;
-      width: fit-content;
-      align-items: center;
-      height: 100%;
-    }
-
-    .logo-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 1rem;
-      height: 100%;
-    }
-
-    .logo-slide img {
-      height: 7vh;  /* Slightly smaller than container for padding */
-      width: auto;
-      object-fit: contain;
-      transition: height 0.3s ease-in-out;
-    }
-
 
     @keyframes scroll {
       0% {
