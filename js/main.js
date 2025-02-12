@@ -60,7 +60,7 @@ if (new Date() >= endDate) {
 // Mobile Image Swap Script
 document.addEventListener('DOMContentLoaded', function() {
     // Handle mobile touch interactions
-    const imageContainers = document.querySelectorAll('.image-container');
+    const imageContainers = document.querySelectorAll('.image-container-shop');
     
     imageContainers.forEach(container => {
         let isShowingSecondary = false;
