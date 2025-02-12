@@ -1,6 +1,6 @@
  /* Set base font size for rem calculations */
         html {
-            font-size: 20px;
+            font-size: 15px;
         }
 
         * {
@@ -62,7 +62,7 @@
 
         .subtitle {
             margin-top: 2rem;
-            font-size: 1.2rem;
+            font-size: 1.75rem;
             color: white;
             text-align: center;
         }
@@ -198,14 +198,14 @@
     }
 
     .product-title {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: 600;
       margin: 0 0 0.5rem 0;
       color: #1a1a1a;
     }
 
     .product-price {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #1a1a1a;
       margin-bottom: 1rem;
@@ -318,7 +318,7 @@ button:hover .button-inner {
 button .button-inner span {
   position: relative;
   z-index: 4;
-  font-size: 15px;
+  font-size: .8rem;
   letter-spacing: -0.05em;
   font-weight: 500;
   color: rgba(0, 0, 0, 0);
