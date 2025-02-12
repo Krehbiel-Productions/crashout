@@ -456,6 +456,11 @@ button:active .button-inner {
       }
     }
 
+.third-fold,
+.fourth-fold {
+    display: none;
+}
+
         .footer {
             width: 100%;
             height: 10vh;
